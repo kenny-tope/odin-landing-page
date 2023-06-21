@@ -7,113 +7,142 @@
     margin:0;
     padding:0;
     font-family: DM-sans, Helvetica;
+    box-sizing: border-box;
+
 }
 
 body {
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
-.nav {
-    height: 80px;
+/* all containers will use these attributes */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0px 30px;
+}
+/* -------------------------------------- */
+
+
+/* this is used to set height of this pane, and is useful for grabbing child elements in css */
+.navbar {
     background-color: #1F2937;
-    display:flex;
-    justify-content: center;
     color: #f9FAF8;
+    height: 80px;
 }
 
-.nav-container {
-    width: 1000px;
+.navbar .container {
+
     display: flex;
     justify-content: space-between;
+
+    /* these need to be together, the height:100% gives the container 100% of the height set by the .navbar */
     align-items: center;
+    height: 100%;
 }
 
-.nav-links-container {
+.navbar ul {
     display:flex;
     gap: 18px;
 }
 
-.nav-header-logo {
+.navbar a:hover {
+    color: orange;
+}
+
+.logo {
     font-weight: bold;
     font-size: 26px;
 }
 /* -------------------------------------- */
-.content-1 {
-    height: 440px;
+.header {
     background-color: #1F2937;
-    display: flex;
-    justify-content: center;
     color: #fff;
+    height: 400px;
+    /* display: flex; */
+    /* justify-content: center; */
 }
 
-.content-1-container {
-    width: 1000px;
+.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding-bottom: 50px;
+    height: 100%;
+    
+    /* width: 1000px; */
+    /* padding-bottom: 50px; */
 }
 
-.hero-pane {
+.header .hero-pane {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /*changes from stretch so button not stretched */
 }
 
-img {
+.header img {
     width: 500px;
     border-radius: 22px;
 }
 
-p.hero-p {
+.header p {
     max-width: 400px;
     color: #E5E7EB;
     margin-bottom: 15px;
 }
 
-h1 {
+.header h1 {
     max-width: 350px;
     font-size: 50px;
     color: #f9FAF8;
 }
 
-/* -------------------------------------- */
-
-.content-2 {
-    height: 440px;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
+/* .button defined below */
+.header button {
+    border: none;
 }
 
-.content-2-container {
-    width: 1000px;
+
+/* -------------------------------------- */
+
+.boxes {
+    height: 440px;
+    background-color: #fff;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+.boxes .container {
+    /* width: 1000px; */
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
+
+    /* these together center vertically */
+    justify-content: center;
+    height: 100%;
+
 }
 
 .panes-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 20px;
+    /* height: 100%; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    gap: 50px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
-.pane {
+.boxes .pane {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
 }
 
-img.pane-img {
-    width: 150px;
+.boxes img {
+    width: 165px;
     border-radius: 22px;
-
 }
 
 p.pane-p {
@@ -121,42 +150,50 @@ p.pane-p {
     text-align: center;
 }
 
-h2 {
-    font-size: 30px;
+.boxes h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
 /* -------------------------------------- */
 
-.content-3 {
+.quote-box {
     height: 440px;
     background-color: #E5E7EB;
     color: #000;
     
-    display:flex;
-    justify-content: center;
+    /* display:flex; */
+    /* justify-content: center; */
 }
 
-.content-3-container {
-    width: 1000px;
+.quote-box .container {
     display:flex;
     flex-direction: column;
+
+    /* need justify-content and height:100% toghether to center within the container, as the container needs to be set to 100% of its parent 'quote-box', where the height is defined */
     justify-content: center;
+    height: 100%;
+
+    /* align horizontally since were a column */
+    align-items: center;
 
 }
 
 
-.quote {
-    max-width: 750px;
-    align-self: center;
+.quote-box p {
+    /* set width of quote within container */
+    max-width: 800px;
+
     font-size: 36px;
     font-weight: light;
     color: #1F2937
 }
 
-.signoff {
+.quote-box .signoff {
+    /* push to end, adjust with margin */
     align-self: flex-end;
-    margin-top: 15px;
     margin-right: 190px;
+
     font-size: 22px;
     font-weight: bold;
 }
@@ -164,36 +201,47 @@ h2 {
 /* -------------------------------------- */
 
 
-.content-4 {
+.action-box {
     height: 300px;
     background-color: #f9FAF8;
 
 
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+
+    display: flex;
     align-items: center;
+    /* justify-content: center; */
 
 
 }
 
-.content-4-container {
-    width: 1000px;
+
+
+/* width: 1000px; */
+/* prevents button from stretching vertically */
+.action-box .container {
+    /* need to set width since nothing in the content is big enough, flex will shrink it down */
+    flex: 1;
+    width: 1100px; 
     height: 150px;
     background-color: #3882F6;
     color: #f9FAF8;
 
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     border-radius: 22px;
+
 }
 
-.content-4-header {
+.action-box h3 {
     font-size: 24px;
 }
 
-.content-4-subtext {
+.action-box .subtext {
     color:#E5E7EB;
 }
 
@@ -210,9 +258,6 @@ button {
     padding: 5px 30px;
 }
 
-.hero-button {
-    border: none;
-}
 
 /* -------------------------------------- */
 
