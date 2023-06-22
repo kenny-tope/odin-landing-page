@@ -202,6 +202,8 @@ p.pane-p {
     /* align horizontally since were a column */
     align-items: center;
 
+    
+
 }
 
 
@@ -211,7 +213,10 @@ p.pane-p {
 
     font-size: 36px;
     font-weight: light;
-    color: #1F2937
+    color: #1F2937;
+
+    flex-shrink: 1;
+
 }
 
 .quote-box .signoff {
@@ -248,9 +253,10 @@ p.pane-p {
 /* prevents button from stretching vertically */
 .action-box .container {
     /* need to set width since nothing in the content is big enough, flex will shrink it down */
-    flex: 1;
+    /* flex: 1; */
     width: 1100px; 
-    height: 150px;
+    /* height: 150px; */
+    min-height: 150px;
     background-color: #3882F6;
     color: #f9FAF8;
 
@@ -259,6 +265,8 @@ p.pane-p {
     align-items: center;
 
     border-radius: 22px;
+
+    flex-wrap: wrap;
 
 }
 
