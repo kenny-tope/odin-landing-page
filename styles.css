@@ -1,3 +1,18 @@
+/* 
+NOTE:
+when I added min-height to each section in order to make the height
+of the sections be able to move to accomodate overflow onto the space below when working with flex-wrap or media queries, it also un-did
+the justify-content and align-items, pushing my flex items to the tops
+of their containers?
+
+In order to offset this for the project, I added padding-top to the flex
+containers, but I need to find a less hacky solution
+
+need to figure out the proper way to do this.
+*/
+
+
+
 @font-face {
     font-family: DM-sans;
     src: url(./fonts/DMSans-Regular.ttf);
@@ -58,7 +73,9 @@ body {
 .header {
     background-color: #1F2937;
     color: #fff;
-    height: 400px;
+    /* must be MIN hieght so that the height can get larger
+    when the content overflows */
+    min-height: 400px;
     /* display: flex; */
     /* justify-content: center; */
 }
@@ -70,7 +87,8 @@ body {
     height: 100%;
     
     /* width: 1000px; */
-    /* padding-bottom: 50px; */
+    padding-top: 50px;
+
 }
 
 .header .hero-pane {
@@ -105,7 +123,8 @@ body {
 /* -------------------------------------- */
 
 .boxes {
-    height: 440px;
+    min-height: 440px;
+    /* height: 440px; */
     background-color: #fff;
     /* display: flex; */
     /* justify-content: center; */
@@ -118,8 +137,11 @@ body {
     align-items: center;
 
     /* these together center vertically */
-    justify-content: center;
+    justify-items: center;
     height: 100%;
+
+    padding-top: 50px;
+
 
 }
 
@@ -158,12 +180,15 @@ p.pane-p {
 /* -------------------------------------- */
 
 .quote-box {
-    height: 440px;
+    min-height: 440px;
     background-color: #E5E7EB;
     color: #000;
     
     /* display:flex; */
     /* justify-content: center; */
+
+    padding-top: 100px;
+
 }
 
 .quote-box .container {
@@ -202,7 +227,7 @@ p.pane-p {
 
 
 .action-box {
-    height: 300px;
+    min-height: 300px;
     background-color: #f9FAF8;
 
 
@@ -285,5 +310,17 @@ ul {
     list-style: none;
 }
 
+
+@media(max-width: 850px) {
+    .header .container {
+        flex-direction: column;
+        padding-bottom: 30px;
+        
+    }
+
+    .header img {
+        margin-top: 30px;
+    }
+}
 
 
