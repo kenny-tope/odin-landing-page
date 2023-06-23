@@ -1,283 +1,20 @@
-/* 
-NOTE:
-when I added min-height to each section in order to make the height
-of the sections be able to move to accomodate overflow onto the space below when working with flex-wrap or media queries, it also un-did
-the justify-content and align-items, pushing my flex items to the tops
-of their containers?
-
-In order to offset this for the project, I added padding-top to the flex
-containers, but I need to find a less hacky solution
-
-need to figure out the proper way to do this.
-*/
-
-
-
-@font-face {
-    font-family: DM-sans;
-    src: url(./fonts/DMSans-Regular.ttf);
+* {
+    margin: 0;
+    padding: 0;
 }
 
-* {
-    margin:0;
-    padding:0;
-    font-family: DM-sans, Helvetica;
-    box-sizing: border-box;
+ul {
+    list-style: none;
+}
 
+a {
+    text-decoration: none;
+    color: white;
 }
 
 body {
-    /* min-height: 100vh; */
+    height: 100vh;
 }
-
-/* all containers will use these attributes */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0px 30px;
-}
-/* -------------------------------------- */
-
-
-/* this is used to set height of this pane, and is useful for grabbing child elements in css */
-.navbar {
-    background-color: #1F2937;
-    color: #f9FAF8;
-    height: 80px;
-}
-
-.navbar .container {
-
-    display: flex;
-    justify-content: space-between;
-
-    /* these need to be together, the height:100% gives the container 100% of the height set by the .navbar */
-    align-items: center;
-    height: 100%;
-}
-
-.navbar ul {
-    display:flex;
-    gap: 18px;
-}
-
-.navbar a:hover {
-    color: orange;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 26px;
-}
-/* -------------------------------------- */
-.header {
-    background-color: #1F2937;
-    color: #fff;
-    /* must be MIN hieght so that the height can get larger
-    when the content overflows */
-    min-height: 400px;
-    /* display: flex; */
-    /* justify-content: center; */
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    
-    /* width: 1000px; */
-    padding-top: 50px;
-
-}
-
-.header .hero-pane {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /*changes from stretch so button not stretched */
-}
-
-.header img {
-    width: 500px;
-    border-radius: 22px;
-}
-
-.header p {
-    max-width: 400px;
-    color: #E5E7EB;
-    margin-bottom: 15px;
-}
-
-.header h1 {
-    max-width: 350px;
-    font-size: 50px;
-    color: #f9FAF8;
-}
-
-/* .button defined below */
-.header button {
-    border: none;
-}
-
-
-/* -------------------------------------- */
-
-.boxes {
-    min-height: 440px;
-    /* height: 440px; */
-    background-color: #fff;
-    /* display: flex; */
-    /* justify-content: center; */
-}
-
-.boxes .container {
-    /* width: 1000px; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    /* these together center vertically */
-    justify-items: center;
-    height: 100%;
-
-    padding-top: 50px;
-
-
-}
-
-.panes-container {
-    display: flex;
-    /* height: 100%; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    gap: 50px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.boxes .pane {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.boxes img {
-    width: 165px;
-    border-radius: 22px;
-}
-
-p.pane-p {
-    max-width: 150px;
-    text-align: center;
-}
-
-.boxes h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-/* -------------------------------------- */
-
-.quote-box {
-    min-height: 440px;
-    background-color: #E5E7EB;
-    color: #000;
-    
-    /* display:flex; */
-    /* justify-content: center; */
-
-    padding-top: 100px;
-
-}
-
-.quote-box .container {
-    display:flex;
-    flex-direction: column;
-
-    /* need justify-content and height:100% toghether to center within the container, as the container needs to be set to 100% of its parent 'quote-box', where the height is defined */
-    justify-content: center;
-    height: 100%;
-
-    /* align horizontally since were a column */
-    align-items: center;
-
-    
-
-}
-
-
-.quote-box p {
-    /* set width of quote within container */
-    max-width: 800px;
-
-    font-size: 36px;
-    font-weight: light;
-    color: #1F2937;
-
-    flex-shrink: 1;
-
-}
-
-.quote-box .signoff {
-    /* push to end, adjust with margin */
-    align-self: flex-end;
-    margin-right: 190px;
-
-    font-size: 22px;
-    font-weight: bold;
-}
-
-/* -------------------------------------- */
-
-
-.action-box {
-    min-height: 300px;
-    background-color: #f9FAF8;
-
-
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-
-
-}
-
-
-
-/* width: 1000px; */
-/* prevents button from stretching vertically */
-.action-box .container {
-    /* need to set width since nothing in the content is big enough, flex will shrink it down */
-    /* flex: 1; */
-    width: 1100px; 
-    /* height: 150px; */
-    min-height: 150px;
-    background-color: #3882F6;
-    color: #f9FAF8;
-
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-
-    border-radius: 22px;
-
-    flex-wrap: wrap;
-
-}
-
-.action-box h3 {
-    font-size: 24px;
-}
-
-.action-box .subtext {
-    color:#E5E7EB;
-}
-
 
 button {
     background-color: #3882F6;
@@ -287,48 +24,226 @@ button {
 
     text-align: center;
     font-weight: 600;
-
     padding: 5px 30px;
 }
 
+.padding {
+    padding: 0 30px;
+}
 
-/* -------------------------------------- */
+/* Nav section */
 
-.footer {
-    height: 90px;
+.nav {
+    height: 80px;
     background-color: #1F2937;
-    color: #f9FAF8;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-container {
+    width: 1100px;
+    /* height: 100%; */
+    background-color: #1F2937;
+    color: white;
+
+    display: flex;
+    /* flex: 1; */
+    justify-content: space-between;
+    padding: 30px 30px 20px 30px;
+}
+
+.nav-container ul {
+    display: flex;
+    gap: 15px;
+}
+
+/* ------ Hero Section ------ */
+
+.hero {
+    min-height: 400px;
+    background-color: #1F2937;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+}
+
+.hero-container {
+    width: 1100px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* flex-wrap: wrap; gonna do it w media query instead */
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.left p {
+    /* change this later */
+    max-width: 400px;
+}
+
+.left button {
+    border: none;
+}
+
+.right {
+    height:200px;
+    width: 390px;
+    background-color: grey;
+
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
-
-
-/* -------------------------------------- */
-
-a {
-    text-decoration: none;
-    color: #fff;
+.right p {
+    text-align: center;
 }
-
-ul {
-    list-style: none;
-}
-
 
 @media(max-width: 850px) {
-    .header .container {
+    .hero .hero-container {
         flex-direction: column;
         padding-bottom: 30px;
         
     }
 
-    .header img {
+    .hero .right {
         margin-top: 30px;
     }
 }
 
+/* Information section */
 
+.information {
+    min-height: 400px;
+    background-color: white;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+}
+
+.information-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* for when the flex-wrap activates */
+    padding-bottom: 30px; 
+}
+
+.information-container h2 {
+    margin: 30px;
+
+    /* put styling here */
+}
+
+.information-container .panes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    gap: 40px;
+
+    flex-wrap: wrap;
+}
+
+.pane .box {
+    border: 7px solid #3882F6;
+    border-radius: 15px;
+    width: 150px;
+    height: 150px;
+}
+
+.pane p {
+    max-width: 150px;
+    text-align: center;
+
+    /* put styling here */
+}
+
+/* Quote section */
+
+.quote {
+    min-height: 400px;
+    background-color: lightgrey;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+}
+
+.quote-container {
+    width: 1100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* padding: 0 30px; */
+
+}
+
+.quote-container p {
+    max-width: 900px;
+    font-size: 40px;
+    /* font-weight: 100; this didnt do shit,  change font*/
+}
+
+.quote-container div {
+    font-size: 22px;
+    font-weight: bolder;
+
+    align-self: flex-end;
+    margin-right: 150px;
+
+}
+
+/* Action section */
+
+.action {
+    min-height: 250px;
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action .box {
+    background-color: #3882F6;
+    color: white;
+    width: 1100px;
+    min-height: 100px;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+}
+
+/* Footer section */
+
+.footer {
+    height: 60px;
+    background-color: #1F2937;
+    color: white;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
