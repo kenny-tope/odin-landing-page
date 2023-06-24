@@ -1,6 +1,13 @@
+@font-face {
+    font-family: DM-sans;
+    src: url(./fonts/DMSans-Regular.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
+
+    font-family: DM-sans, Helvetica;
 }
 
 ul {
@@ -31,7 +38,7 @@ button {
     padding: 0 30px;
 }
 
-/* Nav section */
+/* ------ Nav section ------  */
 
 .nav {
     height: 80px;
@@ -50,11 +57,17 @@ button {
     /* flex: 1; */
     justify-content: space-between;
     padding: 30px 30px 20px 30px;
+    align-items: center;
 }
 
 .nav-container ul {
     display: flex;
-    gap: 15px;
+    gap: 18px;
+}
+
+.nav h3 {
+    font-weight: bold;
+    font-size: 26px;
 }
 
 /* ------ Hero Section ------ */
@@ -75,6 +88,8 @@ button {
     justify-content: space-between;
     align-items: center;
 
+    padding-bottom: 30px;
+
     /* flex-wrap: wrap; gonna do it w media query instead */
 }
 
@@ -86,9 +101,19 @@ button {
     gap: 10px;
 }
 
+.left h1 {
+    max-width: 350px;
+    font-size: 50px;
+    color: #f9FAF8;
+
+    margin-bottom: -10px;
+}
+
 .left p {
     /* change this later */
     max-width: 400px;
+    color: #E5E7EB;
+    /* margin-bottom: 15px; */
 }
 
 .left button {
@@ -96,9 +121,12 @@ button {
 }
 
 .right {
-    height:200px;
-    width: 390px;
+    height:250px;
+    width: 500px;
     background-color: grey;
+    border-radius: 20px;
+
+    margin-left: 30px;
 
 
     display: flex;
@@ -119,10 +147,16 @@ button {
 
     .hero .right {
         margin-top: 30px;
+        margin-left: 0px;
     }
+
+    .hero .left {
+        margin-top: 10px;
+    }
+
 }
 
-/* Information section */
+/* ------ Information section ------  */
 
 .information {
     min-height: 400px;
@@ -158,9 +192,16 @@ button {
     flex-wrap: wrap;
 }
 
+.information-container .panes .pane {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
 .pane .box {
     border: 7px solid #3882F6;
-    border-radius: 15px;
+    border-radius: 20px;
     width: 150px;
     height: 150px;
 }
@@ -172,12 +213,20 @@ button {
     /* put styling here */
 }
 
-/* Quote section */
+.information h2 {
+    font-size: 32px;
+}
+
+/* ------ Quote section ------  */
 
 .quote {
     min-height: 400px;
-    background-color: lightgrey;
-    color: black;
+    /* background-color: lightgrey; */
+    background-color: #E5E7EB;
+
+    /* color: black; */
+    color: #1F2937;
+
 
     display: flex;
     justify-content: center;
@@ -196,9 +245,10 @@ button {
 }
 
 .quote-container p {
-    max-width: 900px;
-    font-size: 40px;
+    max-width: 800px;
+    font-size: 36px;
     /* font-weight: 100; this didnt do shit,  change font*/
+
 }
 
 .quote-container div {
@@ -210,7 +260,7 @@ button {
 
 }
 
-/* Action section */
+/* ------ Action section ------  */
 
 .action {
     min-height: 250px;
@@ -225,21 +275,33 @@ button {
     background-color: #3882F6;
     color: white;
     width: 1100px;
-    min-height: 100px;
-    border-radius: 15px;
+    min-height: 130px;
+    border-radius: 20px;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     flex-wrap: wrap;
+}
+
+.action .box .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    /* color: black; */
 
 }
 
-/* Footer section */
+.action .call-to-action {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ------ Footer section ------  */
 
 .footer {
-    height: 60px;
+    height: 90px;
     background-color: #1F2937;
     color: white;
     
